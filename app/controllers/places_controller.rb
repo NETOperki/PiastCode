@@ -1,2 +1,5 @@
 class PlacesController < ApplicationController
+
+  
+  
 end
