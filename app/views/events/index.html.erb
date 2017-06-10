@@ -16,11 +16,11 @@
   <div id="eventmap" style='height: 324px;'></div>
 </div>
 <div class="ui olive raised center aligned segment">
-  <div class="ui link centered cards" align="center">
+  <div class="ui link cards">
     <% @events.each do |event| %>
       <div data-link="<%= event_path(event) %>" class="card event" data-where="<%= event.where %>">
         <div class="image">
-          <%= image_tag('1.jpg') %>
+          <%= image_tag('event_dummy.png') %>
         </div>
         <div class="content">
           <div class="header"><%= "#{event.user.name} #{event.user.surname}" %></div>
@@ -33,20 +33,19 @@
         </div>
         <div class="extra content">
 
-      <span class="left floated">
+        <span class="left floated">
             <i class="user icon"></i>
             <%= event.joined.count %>
      </span>
           <span class="right floated">
             <i class="calendar icon"></i>
             <%= event.when.to_s :long %>
-        <  </span>
+          </span>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
 <div id="stopka" class="ui olive raised center aligned segment">
   <center><p>
   Copyright © 2017<br>
