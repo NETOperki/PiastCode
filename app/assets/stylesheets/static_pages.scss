@@ -1,3 +1,39 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#container
+{
+	font-size: 20px;
+	font-family: 'Josefin Sans', sans-serif;
+	line-height: 30px;
+}
+
+#stopka
+{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.wieksze
+{
+	font-size: 23px;
+}
+
+.icon1:hover, .icon2:hover, .icon3:hover, .icon4:hover, .icon5:hover, .icon6:hover, .icon7:hover, .icon8:hover, .icon9:hover
+{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.8;
+  -webkit-transition: opacity .1s ease-in-out;
+  -moz-transition: opacity .1s ease-in-out;
+  -ms-transition: opacity .1s ease-in-out;
+  -o-transition: opacity .1s ease-in-out;
+  transition: opacity .1s ease-in-out;
+}
+
+#formularz
+{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}

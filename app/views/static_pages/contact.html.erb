@@ -1,0 +1,60 @@
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&amp;subset=latin-ext" rel="stylesheet"> 
+<div class="ui green tree secondary menu">
+  <%= link_to("Strona główna", root_path, class:"item") %>
+  <%= link_to("Spotkania", events_path, class:"item") %>
+  <a class="item active">
+    Kontakt
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input placeholder="Search..." type="text">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<%= image_tag("logo.jpg", class: "ui fluid image") %>
+<div class="ui olive raised center aligned segment">
+  <p>
+  <div id="formularz">
+  <div class="ui attached message">
+  <div class="header">
+    Chcesz wysłać do nas wiadomość?
+  </div>
+  <p>Zapraszamy do kontaktu!</p>
+</div>
+<form class="ui form attached fluid segment">
+  <div class="two fields">
+    <div class="field">
+      <label>Imię</label>
+      <input placeholder="Imię" type="text">
+    </div>
+    <div class="field">
+      <label>Nazwisko</label>
+      <input placeholder="Nazwisko" type="text">
+    </div>
+  </div>
+  <div class="field">
+    <label>Adres e-mail</label>
+    <input placeholder="Adres e-mail" type="text">
+  </div>
+  <div class="ui form">
+  <div class="field">
+    <label>Treść wiadomości:</label>
+    <textarea placeholder="Treść wiadomości"></textarea>
+  </div>
+  </div>
+  <div class="ui blue submit button">Wyślij</div>
+</form>
+</div>
+  </p>
+</div>
+
+<div id="stopka" class="ui olive raised center aligned segment">
+  <center><p>
+  Copyright © 2017<br>
+  Tomasz Król, Adam Badula, Agnieszka Madeła <br>
+  PiastCode 2017
+  </p></center>
+</div>

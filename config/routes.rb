@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :events
-
-  root 'static_pages#index'
+  get 'contact', to: 'static_pages#contact'
+  root 'static_pages#index'	
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,13 +1,10 @@
-<div class="ui secondary  menu">
+ <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&amp;subset=latin-ext" rel="stylesheet"> 
+<div class="ui green tree secondary  menu">
   <a class="item active">
     Strona główna
   </a>
-  <a class="item">
-    Spotkania
-  </a>
-  <a class="item">
-    Kontakt
-  </a>
+  <%= link_to("Spotkania", events_path, class:"item") %>
+  <%= link_to("Kontakt", contact_path, class:"item") %>
   <div class="right menu">
     <div class="item">
       <div class="ui icon input">
@@ -18,6 +15,38 @@
   </div>
 </div>
 <%= image_tag("logo.jpg", class: "ui fluid image") %>
-<div class="ui raised segment">
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+<div class="ui olive raised center aligned segment">
+  <p>
+  <br>
+  <span class="icon1"><i class="huge circular inverted yellow paw icon"></i></span>
+  <span class="icon2"><i class="huge circular inverted olive birthday icon"></i></span>
+  <span class="icon3"><i class="huge circular inverted green child icon"></i></span>
+  <span class="icon4"><i class="huge circular inverted teal puzzle icon"></i></span>
+  <span class="icon5"><i class="huge circular inverted blue soccer icon"></i></span>
+  <span class="icon6"><i class="huge circular inverted violet leaf icon"></i></span>
+  <span class="icon7"><i class="huge circular inverted purple road icon"></i></span>
+  <span class="icon8"><i class="huge circular inverted brown cocktail icon"></i></span>
+  <span class="icon9"><i class="huge circular inverted orange bicycle icon"></i></span>
+  <br><br><br>
+  <div id="container">
+  Masz ochotę pojeździć <b>na rolkach</b>, zagrać <b>w nogę</b> albo <br>
+  wyjść <b>na piwo</b>, ale nie masz ekipy? <br>
+  Mamy dla Ciebie <b><span class="wieksze">ratunek</span></b>!<br>
+  Stwórz własne <b>spotkanie</b> lub dołącz do kogoś, <br>
+  poznaj nowych znajomych i przeżyj coś <b>niesamowitego</b>! <br><br>
+  </div>
+<div class="ui buttons">
+  <%= link_to("Szukaj spotkania", events_path, class:"ui button") %>
+  <div class="or" data-text="lub"></div>
+  <button class="ui positive button">Stwórz własne</button>
+</div>
+  <br><br>
+  </p>
+</div>
+<div id="stopka" class="ui olive raised center aligned segment">
+  <center><p>
+  Copyright © 2017<br>
+  Tomasz Król, Adam Badula, Agnieszka Madeła <br>
+  PiastCode 2017
+  </p></center>
 </div>
