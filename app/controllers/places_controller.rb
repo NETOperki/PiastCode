@@ -1,6 +1,17 @@
+
 class PlacesController < ApplicationController
 
-	
+	require 'google_maps_service'
+
+
+	def test
+
+		GoogleMapsService.configure do |config|
+		  config.key = 'AIzaSyDSi_n0DKUFHcC7d4cbqANACFb_oPvJZ3A'
+
+		end
+	end
+
 	def radius
 		
 	end
@@ -15,8 +26,5 @@ class PlacesController < ApplicationController
     res = Net::HTTP.get_response(uri)
     return res.body
     
-
-
-
   end
 end
