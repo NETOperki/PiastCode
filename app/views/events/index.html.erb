@@ -1,3 +1,4 @@
+
 <style>
   #map {
         height: 50%;
@@ -8,6 +9,25 @@
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'>
   </div>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&amp;subset=latin-ext" rel="stylesheet"> 
+<div class="ui green tree secondary menu">
+  <%= link_to("Strona główna", root_path, class:"item") %>
+  <a class="item active">Spotkania</a>
+  <%= link_to("Kontakt", contact_path, class:"item") %>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input placeholder="Search..." type="text">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<%= image_tag("logo.jpg", class: "ui fluid image") %>
+
+<div class="ui olive raised center aligned segment">
+  <%= image_tag('wat_maps.png', class: "ui image") %>
+
 </div>
 </div>
 <script>
@@ -17,8 +37,12 @@ markers = handler.addMarkers(<%= raw @hash.to_json %>, {draggable: true});
 <script type="text/javascript">
   
 
+<<<<<<< HEAD
 </script>
 <div class="ui segment">
+=======
+<div class="ui olive raised center aligned segment">
+>>>>>>> origin/master
   <div class="ui link cards">
     <% @events.each do |event| %>
       <div data-link="<%= event_path(event) %>" class="card event">
@@ -46,4 +70,12 @@ markers = handler.addMarkers(<%= raw @hash.to_json %>, {draggable: true});
       </div>
     <% end %>
   </a>
+</div>
+</div>
+<div id="stopka" class="ui olive raised center aligned segment">
+  <center><p>
+  Copyright © 2017<br>
+  Tomasz Król, Adam Badula, Agnieszka Madeła <br>
+  PiastCode 2017
+  </p></center>
 </div>
