@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&amp;subset=latin-ext" rel="stylesheet"> 
 <div class="ui green tree secondary  menu">
   <a class="item active">
     Strona główna
@@ -37,7 +38,7 @@
 <div class="ui buttons">
   <%= link_to("Szukaj spotkania", events_path, class:"ui button") %>
   <div class="or" data-text="lub"></div>
-  <button class="ui positive button">Stwórz własne</button>
+  <%= link_to("Stwórz własne", new_event_path, class:"ui button") %>
 </div>
   <br><br>
   </p>
