@@ -23,7 +23,6 @@ class EventsController < ApplicationController
   def js_map
     event = Event.find_by(id: params[:id])
     pos = event.where.split ','
-
     render :json => {lat: pos.first.to_f, lng: pos.second.to_f}
   end
 
@@ -35,4 +34,5 @@ class EventsController < ApplicationController
     def event_when
       params[:event][:when].to_datetime
     end
+
 end

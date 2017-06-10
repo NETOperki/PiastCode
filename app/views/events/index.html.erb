@@ -1,3 +1,14 @@
+
+<style>
+  #map {
+        height: 50%;
+        width: 50%;
+      }
+</style>
+<div class="ui segment">
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'>
+  </div>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&amp;subset=latin-ext" rel="stylesheet"> 
 <div class="ui green tree secondary menu">
   <%= link_to("Strona główna", root_path, class:"item") %>
@@ -16,9 +27,22 @@
 
 <div class="ui olive raised center aligned segment">
   <%= image_tag('wat_maps.png', class: "ui image") %>
-</div>
 
+</div>
+</div>
+<script>
+handler = Gmaps.build('Google');
+markers = handler.addMarkers(<%= raw @hash.to_json %>, {draggable: true});
+</script>
+<script type="text/javascript">
+  
+
+<<<<<<< HEAD
+</script>
+<div class="ui segment">
+=======
 <div class="ui olive raised center aligned segment">
+>>>>>>> origin/master
   <div class="ui link cards">
     <% @events.each do |event| %>
       <div data-link="<%= event_path(event) %>" class="card event">

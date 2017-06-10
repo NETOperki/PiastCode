@@ -7,4 +7,7 @@ ready = ->
     Turbolinks.visit($(this).data('link'))
   )
 
+  
+
 $(document).on('turbolinks:load', ready)
+

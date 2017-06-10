@@ -22,8 +22,11 @@ gem 'autoprefixer-rails', '~> 7.1', '>= 7.1.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platform: :ruby
 
-gem 'google_maps_service', '~> 0.3.0'
+gem 'gmaps4rails'
 #api google maps
+
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+#underscore.js - do map
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
