@@ -14,21 +14,28 @@
 </div>
 <%= image_tag("logo.jpg", class: "ui fluid image") %>
 <div class="ui olive raised center aligned segment">
-	<div class="ui olive raised center aligned segment">
 		<div class="ui two column grid">
   			<div class="column">
   			<div class="ui olive column raised center aligned segment">
-			<%= @event.title %>
-			<%= image_tag("#{@event.category}.jpg" class:"ui fluid image") %>
+			<%= image_tag("#{@event.category}.jpg", class:"ui fluid image") %>
+			</div><br><br>
+			<span style="font-size:30px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
+			<br><br>
+			<span style="font-size:20px;">
+			<b>Organizator:</b> xxx <br>
+			<b>Kategoria:</b> <br>
+			<b>Opis:</b> <br>
+			<b>Data: </b><br>
+			</span>
+			// button <br> <br>
 			</div>
-			</div>
+
 			<div class="column">
 			<div class="ui olive column raised center aligned segment">
-			ggfdfgdf
+				<div id="createmap" style='height: 600px;'></div>
 			</div>
 			</div>
 		</div>
-	</div>
 </div>
 
 
