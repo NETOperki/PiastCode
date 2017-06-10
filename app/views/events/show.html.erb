@@ -13,38 +13,70 @@
   </div>
 </div>
 <%= image_tag("logo.png", class: "ui fluid image") %>
-<div class="ui olive raised center aligned segment">
-		<div class="ui two column grid">
-  			<div class="column">
-  			<div class="ui olive column raised center aligned segment">
-			<%= image_tag("#{@event.category}.jpg", class:"ui fluid image") %>
-			</div><br><br>
-			<span style="font-size:30px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
-			<br><br>
-			<span style="font-size:20px; line-height: 35px;">
-			<b>Organizator: </b>Juliusz Słowacki<br>
-			<b>Kategoria: </b><%= category_to_name @event.category %><br>
-			<b>Opis: </b><%= @event.description %> <br>
-			<b>Data: </b><%= @event.when.to_s :long %><br>
-			<b>Ilość uczestniczących już osób: </b> <%= @event.joined.count %>
-			</span>
-			<br><br>
-			<button class="ui button">
+<div class="ui basic center aligned segment">
+	<div class="ui two column grid">
+		<div class="column">
+		<div class="ui olive column raised center aligned segment">
+		  <%= image_tag("#{@event.category}.jpg", class:"ui fluid image") %>
+		</div>
+    <div class="ui olive colum raised center aligned semgmet">
+  		<span style="font-size:30px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
+  		<br><br>
+  		<span style="font-size:20px; line-height: 35px;">
+  		<b>Organizator: </b>Juliusz Słowacki<br>
+  		<b>Kategoria: </b><%= category_to_name @event.category %><br>
+  		<b>Opis: </b><%= @event.description %> <br>
+  		<b>Data: </b><%= @event.when.to_s :long %><br>
+  		<b>Ilość uczestniczących już osób: </b> <%= @event.joined.count %>
+  		</span>
+  		<br><br>
+  		<button class="ui button">
   			Dołącz
-			</button>
-			<br> <br>
-			</div>
-
-			<div class="column">
+  		</button>
+    </div>
+		<br> <br>
+		</div>
+		<div class="column">
 			<div class="ui olive column raised center aligned segment">
-				<div id="createmap" style='height: 600px;'></div>
-			</div>
+				<div id="showthemap" style='height: 600px;' data-where="<%= @event.where %>"></div>
 			</div>
 		</div>
+	</div>
 </div>
-
-
-
+<div class="ui olive raised segment">
+  <div class="ui two column grid">
+    <div class="column">
+      <div class="ui comments">
+        <h3 class="ui header">Posty użytkowników</h3>
+        <% if @event.posts.empty? %>
+          <div class="ui message">
+            Brak wiadomości
+          </div>
+        <% end %>
+        <% @event.posts.order(created_at: :desc).limit(6).each do |post| %>
+          <div class="comment">
+            <a class="avatar"><i class="big user icon"></i></a>
+            <div class="content">
+              <a class="author"><%= "#{post.user.name} #{post.user.surname}" %></a>
+              <div class="metadata">
+                <span class="date"><%= post.created_at.to_s :long %></span>
+              </div>
+              <div class="text"><%= post.content %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="column">
+      <%= form_for([@event, Post.new], html: {class: "ui reply form"}) do |f| %>
+        <div class="field">
+          <%= f.text_area :content %>
+        </div>
+        <%= f.submit("Dodaj wiadomość", class: "ui blue button") %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <div id="stopka" class="ui olive raised center aligned segment">
   <center><p>
   Copyright © 2017<br>
