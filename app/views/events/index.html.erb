@@ -26,9 +26,9 @@
           <%= image_tag("#{event.category}.jpg") %>
         </div>
         <div class="content">
-          <div class="header"><%= "#{event.user.name} #{event.user.surname}" %></div>
+          <div class="header"><%= event.title %></div>
           <div class="meta">
-            <a>Informacje</a>
+            <a><%= "#{event.user.name} #{event.user.surname}" %></a>
           </div>
           <div class="description">
             <%= event.description %>

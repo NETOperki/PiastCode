@@ -20,6 +20,14 @@ class EventsController < ApplicationController
     redirect_to @event
   end
 
+  def join_event
+    event = Event.find_by(id: params[:id])
+    join = event.joined.new user: User.first
+    join.save
+
+    redirect_to event
+  end
+
   private
     def event_params
       params.require(:event).permit(:title, :description, :where, :category)

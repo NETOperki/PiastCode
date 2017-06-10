@@ -19,8 +19,8 @@
 		<div class="ui olive column raised center aligned segment">
 		  <%= image_tag("#{@event.category}.jpg", class:"ui fluid image") %>
 		</div>
-    <div class="ui olive colum raised center aligned semgmet">
-  		<span style="font-size:30px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
+    <div class="ui olive column raised center aligned segment">
+  		<span style="font-size:30px; line-height: 50px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
   		<br><br>
   		<span style="font-size:20px; line-height: 35px;">
   		<b>Organizator: </b>Juliusz Słowacki<br>
@@ -30,14 +30,11 @@
   		<b>Ilość uczestniczących już osób: </b> <%= @event.joined.count %>
   		</span>
   		<br><br>
-  		<button class="ui button">
-  			Dołącz
-  		</button>
+      <%= link_to("Dołącz", event_join_path(@event), class:"ui green button") %>
       <%= link_to("http://www.facebook.com/share.php?u=http://localhost:3000#{url_for(@event)}", class:"ui facebook button") do %>
       <i class="facebook icon"></i>Udostępnij na Facebooku
       <% end %>
     </div>
-		<br> <br>
 		</div>
 		<div class="column">
 			<div class="ui olive column raised center aligned segment">
@@ -73,7 +70,7 @@
     <div class="column">
       <%= form_for([@event, Post.new], html: {class: "ui reply form"}) do |f| %>
         <div class="field">
-          <%= f.text_area :content %>
+          <%= f.text_area :content, placeholder: "Wiadomość" %>
         </div>
         <%= f.submit("Dodaj wiadomość", class: "ui blue button") %>
       <% end %>
