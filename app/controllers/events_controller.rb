@@ -16,14 +16,7 @@ class EventsController < ApplicationController
     @event.when = event_when
     @event.user = User.first
     @event.save
-
     redirect_to @event
-  end
-
-  def js_map
-    event = Event.find_by(id: params[:id])
-    pos = event.where.split ','
-    render :json => {lat: pos.first.to_f, lng: pos.second.to_f}
   end
 
   private
@@ -34,5 +27,4 @@ class EventsController < ApplicationController
     def event_when
       params[:event][:when].to_datetime
     end
-
 end
