@@ -1,0 +1,33 @@
+<div class="ui segment">
+  <%= image_tag('wat_maps.png', class: "ui image") %>
+</div>
+
+<div class="ui segment">
+  <div class="ui link cards">
+    <% @events.each do |event| %>
+      <div data-link="<%= event_path(event) %>" class="card event">
+        <div class="image">
+          <%= image_tag('event_dummy.png') %>
+        </div>
+        <div class="content">
+          <div class="header"><%= "#{event.user.name} #{event.user.surname}" %></div>
+          <div class="meta">
+            <a>Informacje</a>
+          </div>
+          <div class="description">
+            <%= event.description %>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            <%= event.when.to_s :long %>
+          </span>
+          <span>
+            <i class="user icon"></i>
+            11 chętnych
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </a>
+</div>

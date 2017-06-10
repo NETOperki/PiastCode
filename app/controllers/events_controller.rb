@@ -4,6 +4,13 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(id: param[:id])
+    @event = Event.find_by(id: params[:id])
+  end
+
+  def js_map
+    event = Event.find_by(id: params[:id])
+    pos = event.where.split ','
+
+    render :json => {lat: pos.first.to_f, lng: pos.second.to_f}
   end
 end
