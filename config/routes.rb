@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    resources :posts, only: [:create]  
+  end
+
   get 'contact', to: 'static_pages#contact'
 
   get 'places/test'

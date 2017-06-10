@@ -42,4 +42,19 @@ ready = ->
         lastMarker = handler.addMarker({"lat": event.latLng.lat(), "lng": event.latLng.lng()})
         $("#event_where").val(event.latLng.lat() + "," + event.latLng.lng())
     )
+
+  if !!document.getElementById("showthemap")
+    console.log("Showthemap!")
+    handler = Gmaps.build('Google')
+    handler.buildMap({ provider: {
+      zoom: 8, 
+      center: new google.maps.LatLng(50.7812, 17.22812),
+      disableDefaultUI: true
+    }, internal: {id: 'showthemap'}}, () ->
+      localpos = $("#showthemap").data('where').split(',')
+      handler.bounds.extendWith(handler.addMarker({
+        "lat": parseFloat(localpos[0]), 
+        "lng": parseFloat(localpos[1])
+      }))
+    )
 $(document).on('turbolinks:load', ready)
