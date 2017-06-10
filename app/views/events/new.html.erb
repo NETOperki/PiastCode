@@ -1,15 +1,51 @@
-<%= form_for(@event, html: {class: "ui form"}) do |f| %>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&amp;subset=latin-ext" rel="stylesheet"> 
+<div class="ui green tree secondary  menu">
+  <%= link_to("Strona główna", root_path, class:"item") %>
+  <%= link_to("Spotkania", events_path, class:"item") %>
+  <%= link_to("Kontakt", contact_path, class:"item") %>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input placeholder="Search..." type="text">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<%= image_tag("logo.jpg", class: "ui fluid image") %>
+<div class="ui olive raised center aligned segment">
+<div id="formularz">
+  <div class="ui attached message">
+  <div class="header">
+    Utwórz spotkanie
+  </div>
+  <p>To nigdy nie było tak proste!</p>
+</div>
+<form class="ui form attached fluid segment">
+  <%= form_for(@event, html: {class: "ui form"}) do |f| %>
   <div class="field">
     <label>Tytuł</label>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder:"Tytuł" %>
   </div>
-  <div class="field">
+ <div class="field">
     <label>Opis</label>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, placeholder:"Opis" %>
   </div>
   <div class="field">
     <label>Data</label>
-    <%= f.text_field :when %>
+    <%= f.text_field :when, placeholder:"Data" %>
   </div>
-  <%= f.submit %>
+  <%= f.submit("Utwórz", class:"ui blue submit button") %>
 <% end %>
+</form>
+</div>
+</div>
+
+
+<div id="stopka" class="ui olive raised center aligned segment">
+  <center><p>
+  Copyright © 2017<br>
+  Tomasz Król, Adam Badula, Agnieszka Madeła <br>
+  PiastCode 2017
+  </p></center>
+</div>
