@@ -33,6 +33,9 @@
   		<button class="ui button">
   			Dołącz
   		</button>
+      <%= link_to("http://www.facebook.com/share.php?u=http://localhost:3000#{url_for(@event)}", class:"ui facebook button") do %>
+      <i class="facebook icon"></i>Udostępnij na Facebooku
+      <% end %>
     </div>
 		<br> <br>
 		</div>

@@ -15,12 +15,15 @@
 <div class="ui olive raised center aligned segment">
   <div id="eventmap" style='height: 324px;'></div>
 </div>
-<div class="ui olive raised center aligned segment">
-  <div class="ui link cards">
+<div class="ui center aligned basic segment">
+  <%= link_to("Stwórz nowe spotkanie", new_event_path, class:"ui green button") %>
+</div>
+<div class="ui center aligned basic segment">
+  <div class="ui link centered cards">
     <% @events.each do |event| %>
       <div data-link="<%= event_path(event) %>" class="card event" data-where="<%= event.where %>">
         <div class="image">
-          <%= image_tag('event_dummy.png') %>
+          <%= image_tag("#{event.category}.jpg") %>
         </div>
         <div class="content">
           <div class="header"><%= "#{event.user.name} #{event.user.surname}" %></div>
