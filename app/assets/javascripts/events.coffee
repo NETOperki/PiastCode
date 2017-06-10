@@ -34,6 +34,12 @@ ready = ->
       center: new google.maps.LatLng(50.7812, 17.22812),
       disableDefaultUI: true
     }, internal: {id: 'createmap'}}, () ->
-      markers = []
+      lastMarker = undefined
+      google.maps.event.addListener handler.getMap(), 'click', (event) ->
+        if typeof(lastMarker) != 'undefined'
+          lastMarker.clear()
+          handler.removeMarker(lastMarker)
+        lastMarker = handler.addMarker({"lat": event.latLng.lat(), "lng": event.latLng.lng()})
+        $("#event_where").val(event.latLng.lat() + "," + event.latLng.lng())
     )
 $(document).on('turbolinks:load', ready)
