@@ -19,9 +19,7 @@ ActiveRecord::Schema.define(version: 20170610071548) do
     t.string "where"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "Event"
     t.integer "user_id"
-    t.integer "type"
     t.integer "category"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
