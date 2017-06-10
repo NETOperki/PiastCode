@@ -14,34 +14,43 @@
 </div>
 <%= image_tag("logo.jpg", class: "ui fluid image") %>
 <div class="ui olive raised center aligned segment">
-<div id="formularz">
-  <div class="ui attached message">
-  <div class="header">
-    Utwórz spotkanie
+<div class="ui two column grid">
+  <div class="column">
+    <div id="formularz">
+      <div class="ui attached message">
+        <div class="header">
+          Utwórz spotkanie
+        </div>
+        <p>To nigdy nie było tak proste!</p>
+      </div>
+      <%= form_for(@event, html: {class: "ui form attached fluid segment"}) do |f| %>
+        <div class="field">
+          <label>Tytuł</label>
+          <%= f.text_field :title, placeholder:"Tytuł" %>
+        </div>
+       <div class="field">
+          <label>Opis</label>
+          <%= f.text_field :description, placeholder:"Opis" %>
+        </div>
+        <div class="field">
+          <label>Typ wydarzenia</label>
+          
+        </div>
+        <div class="field">
+          <label>Data</label>
+          <%= f.text_field :when, placeholder:"Data" %>
+        </div>
+        <%= f.submit("Utwórz", class:"ui blue submit button") %>
+      <% end %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <div id="createmap" style='height: 400px;'></div>
+      </div>
+    </div>
   </div>
-  <p>To nigdy nie było tak proste!</p>
 </div>
-<form class="ui form attached fluid segment">
-  <%= form_for(@event, html: {class: "ui form"}) do |f| %>
-  <div class="field">
-    <label>Tytuł</label>
-    <%= f.text_field :title, placeholder:"Tytuł" %>
-  </div>
- <div class="field">
-    <label>Opis</label>
-    <%= f.text_field :description, placeholder:"Opis" %>
-  </div>
-  <div class="field">
-    <label>Data</label>
-    <%= f.text_field :when, placeholder:"Data" %>
-  </div>
-  <%= f.submit("Utwórz", class:"ui blue submit button") %>
-<% end %>
-</form>
-</div>
-</div>
-
-
 <div id="stopka" class="ui olive raised center aligned segment">
   <center><p>
   Copyright © 2017<br>
