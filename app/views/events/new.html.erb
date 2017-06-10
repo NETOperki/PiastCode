@@ -34,12 +34,13 @@
         </div>
         <div class="field">
           <label>Typ wydarzenia</label>
-          
+
         </div>
         <div class="field">
           <label>Data</label>
           <%= f.text_field :when, placeholder:"Data" %>
         </div>
+        <%= f.hidden_field :where %>
         <%= f.submit("Utwórz", class:"ui blue submit button") %>
       <% end %>
       </div>
