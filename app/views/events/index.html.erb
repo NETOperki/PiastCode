@@ -32,12 +32,14 @@
           </div>
         </div>
         <div class="extra content">
-          <span class="right floated">
-            <%= event.when.to_s :long %>
-          </span>
-          <span>
+
+        <span class="left floated">
             <i class="user icon"></i>
-            11 chętnych
+            <%= event.joined.count %>
+     </span>
+          <span class="right floated">
+            <i class="calendar icon"></i>
+            <%= event.when.to_s :long %>
           </span>
         </div>
       </div>
