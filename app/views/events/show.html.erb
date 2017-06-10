@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<%= image_tag("logo.jpg", class: "ui fluid image") %>
+<%= image_tag("logo.png", class: "ui fluid image") %>
 <div class="ui olive raised center aligned segment">
 		<div class="ui two column grid">
   			<div class="column">
@@ -21,13 +21,18 @@
 			</div><br><br>
 			<span style="font-size:30px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
 			<br><br>
-			<span style="font-size:20px;">
-			<b>Organizator:</b> xxx <br>
-			<b>Kategoria:</b> <br>
-			<b>Opis:</b> <br>
-			<b>Data: </b><br>
+			<span style="font-size:20px; line-height: 35px;">
+			<b>Organizator: </b>Juliusz Słowacki<br>
+			<b>Kategoria: </b><%= category_to_name @event.category %><br>
+			<b>Opis: </b><%= @event.description %> <br>
+			<b>Data: </b><%= @event.when.to_s :long %><br>
+			<b>Ilość uczestniczących już osób: </b> <%= @event.joined.count %>
 			</span>
-			// button <br> <br>
+			<br><br>
+			<button class="ui button">
+  			Dołącz
+			</button>
+			<br> <br>
 			</div>
 
 			<div class="column">
