@@ -16,12 +16,13 @@ class EventsController < ApplicationController
     @event.when = event_when
     @event.user = User.first
     @event.save
+
     redirect_to @event
   end
 
   private
     def event_params
-      params.require(:event).permit(:title, :description, :where)
+      params.require(:event).permit(:title, :description, :where, :category)
     end
 
     def event_when
