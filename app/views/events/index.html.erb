@@ -10,7 +10,14 @@
   </div>
 </div>
 </div>
+<script>
+handler = Gmaps.build('Google');
+markers = handler.addMarkers(<%= raw @hash.to_json %>, {draggable: true});
+</script>
+<script type="text/javascript">
+  
 
+</script>
 <div class="ui segment">
   <div class="ui link cards">
     <% @events.each do |event| %>

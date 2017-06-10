@@ -4,27 +4,20 @@ class PlacesController < ApplicationController
 	require 'google_maps_service'
 
 
-	def test
+	def js_map
+    event = Event.find_by(id: params[:id])
+    pos = event.where.split ','
 
-		GoogleMapsService.configure do |config|
-		  config.key = 'AIzaSyDSi_n0DKUFHcC7d4cbqANACFb_oPvJZ3A'
+    render :json => {lat: pos.first.to_f, lng: pos.second.to_f}
 
-		end
-	end
-
-	def radius
-		
-	end
+  	end
+  	@users = User.all
+	@hash = Gmaps4rails.build_markers(@users) do |user, marker|
+  marker.lat user.latitude
+  marker.lng user.longitude
+end
 	#def link
 	#	"https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDsq2YWONMgdg-13qxa1IOxanjb7vs-VPs"+"&location="+get_points+"&radius="+radius
 	#end
 
-	def get_points(loc, radius)
-    uri = URI('https://maps.googleapis.com/maps/api/place/nearbysearch/json')
-    params = { :key => "AIzaSyDsq2YWONMgdg-13qxa1IOxanjb7vs-VPs" , :location => loc, :radius => radius }
-    uri.query = URI.encode_www_form(params)
-    res = Net::HTTP.get_response(uri)
-    return res.body
-    
-  end
 end
