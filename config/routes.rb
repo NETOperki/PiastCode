@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :events
+  get 'contact', to: 'static_pages#contact'
+
   get 'places/test'
 
   get 'events/js/point/:id', to: 'events#js_map'
