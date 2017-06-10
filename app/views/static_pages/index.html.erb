@@ -1,18 +1,10 @@
-<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&amp;subset=latin-ext" rel="stylesheet"> 
-<div class="ui green tree secondary  menu">
+<br>
+<div class="ui green tree secondary menu">
   <a class="item active">
     Strona główna
   </a>
   <%= link_to("Spotkania", events_path, class:"item") %>
   <%= link_to("Kontakt", contact_path, class:"item") %>
-  <div class="right menu">
-    <div class="item">
-      <div class="ui icon input">
-        <input placeholder="Search..." type="text">
-        <i class="search link icon"></i>
-      </div>
-    </div>
-  </div>
 </div>
 <%= image_tag("logo.png", class: "ui fluid image") %>
 <div class="ui olive raised center aligned segment">
