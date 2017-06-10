@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new event_params
+    @event.when = event_when
     @event.user = User.first
     @event.save
 
@@ -28,6 +29,10 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:title, :description, :when, :where)
+      params.require(:event).permit(:title, :description, :where)
+    end
+
+    def event_when
+      params[:event][:when].to_datetime
     end
 end
