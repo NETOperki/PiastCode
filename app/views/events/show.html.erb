@@ -22,7 +22,7 @@
 			<span style="font-size:30px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
 			<br><br>
 			<span style="font-size:20px; line-height: 35px;">
-			<b>Organizator: </b>Juliusz Słowacki<br>
+			<b>Organizator: </b><%= "#{@event.user.name} #{@event.user.surname}"%><br>
 			<b>Kategoria: </b><%= category_to_name @event.category %><br>
 			<b>Opis: </b><%= @event.description %> <br>
 			<b>Data: </b><%= @event.when.to_s :long %><br>
