@@ -29,12 +29,15 @@
 			<b>Ilość uczestniczących już osób: </b> <%= @event.joined.count %>
 			</span>
 			<br><br>
-			<button class="ui button">
+			<button class="ui green tree button">
   			Dołącz
-			</button>
-			<br> <br>
-			</div>
+			</button> 
 
+			<%= link_to("http://www.facebook.com/share.php?u=http://localhost:3000#{url_for(@event)}", class:"ui facebook button") do %>
+			<i class="facebook icon"></i>Udostępnij na Facebooku
+			<% end %>
+			<br><br>
+			</div>
 			<div class="column">
 			<div class="ui olive column raised center aligned segment">
 				<div id="createmap" style='height: 600px;'></div>
