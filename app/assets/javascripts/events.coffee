@@ -3,7 +3,17 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
-  $('input[name="event[when]"]').parent('.field').calendar({type: 'datetime', ampm: false})
+  $('input[name="event[when]"]').parent('.field').calendar({
+    type: 'datetime', ampm: false, text: {
+      days: ['N', 'P', 'W', 'Ś', 'C', 'P', 'S'],
+      months: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'],
+      monthsShort: ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'],
+      today: 'Dzisiaj',
+      now: 'Teraz',
+      am: 'AM',
+      pm: 'PM'
+    }
+  })
 
   $('.event').on('click', () ->
     Turbolinks.visit($(this).data('link'))
