@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
+  $('input[name="event[when]"]').parent('.field').calendar({type: 'datetime', ampm: false})
+
   $('.event').on('click', () ->
     Turbolinks.visit($(this).data('link'))
   )
@@ -57,4 +59,5 @@ ready = ->
         "lng": parseFloat(localpos[1])
       }))
     )
+
 $(document).on('turbolinks:load', ready)
