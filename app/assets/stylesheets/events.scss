@@ -1,3 +1,26 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#showthemap {
+  height: 584px;  
+}
+
+@media only screen and (max-width: 767px) {
+  .mobile-hidden {
+    display: none;
+  }
+  #showthemap {
+    height: 250px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .tablet-hidden {
+    display: none;
+  }
+  #showthemap {
+    height: 500px;
+  }
+}
+

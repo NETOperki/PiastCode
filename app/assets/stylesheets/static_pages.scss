@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
 #container
 {
 	font-size: 20px;
@@ -19,18 +26,6 @@
 .wieksze
 {
 	font-size: 23px;
-}
-
-.icon1:hover, .icon2:hover, .icon3:hover, .icon4:hover, .icon5:hover, .icon6:hover, .icon7:hover, .icon8:hover, .icon9:hover
-{
-  zoom: 1;
-  filter: alpha(opacity=50);
-  opacity: 0.8;
-  -webkit-transition: opacity .1s ease-in-out;
-  -moz-transition: opacity .1s ease-in-out;
-  -ms-transition: opacity .1s ease-in-out;
-  -o-transition: opacity .1s ease-in-out;
-  transition: opacity .1s ease-in-out;
 }
 
 #formularz
@@ -66,4 +61,56 @@
 #eventmap
 {
 	height: 324px;
+}
+
+img.ui.logo.image {
+  box-shadow: 0 0 4px #c2c2c2;
+  border-radius: 3px;
+}
+
+// main icon instance (not device dependent)
+i.main.icon {
+  opacity: 1;
+  @include transition(opacity .1s ease-in-out);
+  &:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    zoom: 1;
+  }
+}
+
+// mobile
+@media only screen and (max-width: 767px) {
+  i.main.icon {
+    &:not(:first-child) {
+      margin-left: -0.95em;
+    }
+    &.notmobile {
+      display: none;
+    }
+  }
+  #formularz {
+    width: auto;
+  }
+}
+
+// tablet
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  i.main.icon {
+    &:not(:first-child) {
+      margin-left: -0.40em;
+    }
+    &.nottablet {
+      display: none;
+    }
+  }
+}
+
+// computer
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  i.main.icon {
+    &:not(:first-child) {
+      margin-left: -0.4em;
+    }
+  }
 }
