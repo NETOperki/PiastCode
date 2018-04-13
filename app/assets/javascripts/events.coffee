@@ -15,6 +15,8 @@ ready = ->
     }
   })
 
+  $('.ui.dropdown').dropdown()
+
   $('.event').on('click', () ->
     Turbolinks.visit($(this).data('link'))
   )
