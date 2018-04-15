@@ -13,33 +13,13 @@
   <%= link_to("Stwórz nowe spotkanie", new_event_path, class:"ui green button") %>
 </div>
 <div class="ui center aligned basic segment">
-  <div class="ui link centered cards">
-    <% @events.each do |event| %>
-      <div data-link="<%= event_path(event) %>" class="card event" data-where="<%= event.where %>">
-        <div class="image">
-          <%= image_tag("#{event.category}.jpg") %>
-        </div>
-        <div class="content">
-          <div class="header"><%= event.title %></div>
-          <div class="meta">
-            <a><%= "#{event.user.name} #{event.user.surname}" %></a>
-          </div>
-          <div class="description">
-            <%= event.description %>
-          </div>
-        </div>
-        <div class="extra content">
-
-        <span class="left floated">
-            <i class="user icon"></i>
-            <%= event.joined.count %>
-     </span>
-          <span class="right floated">
-            <i class="calendar icon"></i>
-            <%= event.when.to_s :long %>
-          </span>
-        </div>
-      </div>
-    <% end %>
+  <div class="ui action fluid event-search input">
+    <input type="text" placeholder="Przeszukaj spotkania..">
+    <button class="ui icon search button"><i class="search icon"></i></button>
+  </div>
+</div>
+<div class="ui center aligned basic segment">
+  <div class="ui link centered event cards">
+    <%= render @events %>
   </div>
 </div>

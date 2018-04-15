@@ -11,6 +11,12 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def find
+    search_query = params[:query]
+    @events = Event.where('title like ?', "%#{search_query}%")
+    render layout: false
+  end
+
   def create
     @event = Event.new event_params
     @event.when = event_when

@@ -17,10 +17,6 @@ ready = ->
 
   $('.ui.dropdown').dropdown()
 
-  $('.event').on('click', () ->
-    Turbolinks.visit($(this).data('link'))
-  )
-
   if !!document.getElementById("eventmap")
     console.log("Eventmap is ready.")
     handler = Gmaps.build('Google')
@@ -73,3 +69,26 @@ ready = ->
     )
 
 $(document).on('turbolinks:load', ready)
+
+$(document).on('ready', () -> 
+  $(document).on('click', '.event', () ->
+    Turbolinks.visit($(this).data('link'))
+  )
+
+  $(document).on('click', '.ui.event-search .search', (e) ->
+    e.preventDefault()
+    value = $('.ui.event-search input').val()
+    if value.length < 3
+      return;
+
+    $.ajax({
+      url: 'events/find',
+      type: 'get',
+      data: {
+        query: value
+      },
+      success: (data) ->
+        $('.ui.event.cards').html(data)
+    })
+  )
+)
