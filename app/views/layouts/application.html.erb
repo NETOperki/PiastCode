@@ -21,15 +21,28 @@
         <%= link_to(contact_path, class: item_active?(contact_path, true)) do %>
           <i class="envelope open outline icon"></i> Kontakt
         <% end %>
+        <div class="right menu">
+          <div class="ui dropdown item">
+            Użytkownik <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item">Zaloguj się</a>
+              <a href="<%= new_user_path %>" class="item">Rejestracja</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="ui container">
+      <br>
+      <% flash.each do |type, message| %>
+        <div class="ui <%= type %> message"><%= message %></div>
+      <% end %>
       <%= yield %>
     </div>
     <div id="stopka" class="ui olive center aligned attached segment">
       <p>
-      Copyright © 2018<br>
-      Tomasz Król, Adam Badula, Agnieszka Madeła <br>
+        Copyright © 2018<br>
+        Tomasz Król, Adam Badula, Agnieszka Madeła<br>
       </p>
     </div>
   </body>

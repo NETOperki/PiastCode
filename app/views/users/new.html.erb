@@ -1,0 +1,43 @@
+<br>
+<%= image_tag("logo.png", class: "ui fluid logo image") %>
+<div class="ui blue raised center aligned segment">
+  <h3 class="ui header">
+    <div class="content">
+      Rejestracja użytkownika
+      <div class="sub header">Zajmie to jedynie chwilę, a udostępni niezliczone możliwości</div>
+    </div>
+  </h3>
+  <%= render 'shared/form_errors' %>
+  <%= form_for(@user, html: {class: "ui small form basic segment"}) do |f| %>
+    <div class="field">
+      <label>Dane osobowe</label>
+      <div class="two fields">
+        <div class="field"><%= f.text_field :name, placeholder: "Imię" %></div>
+        <div class="field"><%= f.text_field :surname, placeholder: "Nazwisko" %></div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Dane kontaktowe</label>
+      <div class="two fields">
+        <div class="field">
+          <div class="ui labeled input">
+            <div class="ui basic label">+48</div>
+            <%= f.telephone_field :telephone, placeholder: "Numer telefonu" %>
+          </div>
+        </div>
+        <div class="field"><%= f.email_field :email, placeholder: "Adres email" %></div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Hasło użytkownika</label>
+      <div class="two fields">
+        <div class="field"><%= f.password_field :password, placeholder: "Hasło" %></div>
+        <div class="field"><%= f.password_field :password_confirmation, placeholder: "Potwierdzenie hasła" %></div>
+      </div>
+    </div>
+    <a href="" class="ui basic button">
+      <i class="left chevron icon"></i>Mam już konto..
+    </a>
+    <%= f.submit("Zarejestruj się", class:"ui inverted orange submit button") %>
+  <% end %>
+</div>

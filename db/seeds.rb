@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(name: "Administrator", email: "admin@piastcode.local",
+  password: "Br0k3nL!f3", password_confirmation: "Br0k3nL!f3", admin: true)

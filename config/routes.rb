@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get 'events/find', to: 'events#find', as: 'events_find'
 
   resources :events do
-    resources :posts, only: [:create]  
+    resources :posts, only: [:create]
   end
+
+  resources :users
 
   get 'contact', to: 'static_pages#contact'
   get 'places/test'

@@ -1,0 +1,12 @@
+<% if @user.errors.any? %>
+  <div class="ui negative message">
+    <div class="header">
+      Formularz zawiera <%= @user.errors.count %> błędów!
+    </div>
+    <ul class="list">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
