@@ -1,0 +1,34 @@
+<%= image_tag("logo.png", class: "ui fluid logo image") %>
+<div class="ui container">
+  <div class="ui middle aligned center aligned grid">
+    <div class="login column">
+      <div class="ui basic segment"></div>
+      <div class="ui stacked segment">
+        <h3 class="ui header">
+          <div class="content">
+            Rejestracja użytkownika
+            <div class="sub header">Zajmie to jedynie chwilę, a udostępni niezliczone możliwości</div>
+          </div>
+        </h3>
+        <%= form_for(:session, url: login_path, html: {class: "ui form"}) do |f| %>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <%= f.email_field :email, placeholder: "Adres email" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <%= f.password_field :password, placeholder: "Adres email" %>
+            </div>
+          </div>
+          <%= f.submit "Zaloguj się", class: "ui fluid blue large submit button" %>
+        <% end %>
+      </div>
+      <div class="ui message">
+        Nie masz konta? <a href="<%= signup_path %>">Zarejestruj się</a>
+      </div>
+    </div>
+  </div>
+</div>

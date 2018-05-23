@@ -1,4 +1,3 @@
-<br>
 <%= image_tag("logo.png", class: "ui fluid logo image") %>
 <div class="ui blue raised center aligned segment">
   <h3 class="ui header">
@@ -35,7 +34,7 @@
         <div class="field"><%= f.password_field :password_confirmation, placeholder: "Potwierdzenie hasła" %></div>
       </div>
     </div>
-    <a href="" class="ui basic button">
+    <a href="<%= login_path %>" class="ui basic button">
       <i class="left chevron icon"></i>Mam już konto..
     </a>
     <%= f.submit("Zarejestruj się", class:"ui inverted orange submit button") %>

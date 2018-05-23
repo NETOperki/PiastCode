@@ -23,11 +23,21 @@
         <% end %>
         <div class="right menu">
           <div class="ui dropdown item">
-            Użytkownik <i class="dropdown icon"></i>
-            <div class="menu">
-              <a class="item">Zaloguj się</a>
-              <a href="<%= new_user_path %>" class="item">Rejestracja</a>
-            </div>
+            <% if logged_in? %>
+              <%= current_user.name %> <i class="dropdown icon"></i>
+              <div class="menu">
+                <a href="" class="item">Profil</a>
+                <a href="" class="item">Moje wydarzenia</a>
+                <div class="divider"></div>
+                <%= link_to "Wyloguj się", logout_path, method: :delete, class: "item" %>
+              </div>
+            <% else %>
+              Użytkownik <i class="dropdown icon"></i>
+              <div class="menu">
+                <a href="<%= login_path %>" class="item">Zaloguj się</a>
+                <a href="<%= signup_path %>" class="item">Rejestracja</a>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
