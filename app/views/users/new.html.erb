@@ -7,7 +7,7 @@
     </div>
   </h3>
   <%= render 'shared/form_errors' %>
-  <%= form_for(@user, html: {class: "ui small form basic segment"}) do |f| %>
+  <%= form_for(@user, url: signup_url, html: {class: "ui small form basic segment"}) do |f| %>
     <div class="field">
       <label>Dane osobowe</label>
       <div class="two fields">
