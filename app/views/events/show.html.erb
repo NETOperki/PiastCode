@@ -53,6 +53,11 @@
                       <span class="date"><%= post.created_at.to_s :long %></span>
                     </div>
                     <div class="text"><%= post.content %></div>
+                    <% if post.user == current_user %>
+                      <div class="actions">
+                        <%= link_to("Usuń", [@event, post], method:"delete") %>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
               <% end %>

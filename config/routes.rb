@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'events/find', to: 'events#find', as: 'events_find'
 
   resources :events do
-    resources :posts, only: [:create]
+    resources :posts, only: [:create, :destroy]
   end
 
   resources :users, only: [:show, :index, :edit]
