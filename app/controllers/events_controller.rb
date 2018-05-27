@@ -5,9 +5,17 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @joined = nil
+    if not current_user.nil? then
+      @joined = @event.joined().where(user_id: current_user)
+    end
   end
 
   def new
+    if not logged_in? then
+      flash[:negative] = "Zaloguj się, aby mieć możliwość dodania nowego wydarzenia."
+      redirect_to events_path
+    end
     @event = Event.new
   end
 
@@ -20,18 +28,30 @@ class EventsController < ApplicationController
   def create
     @event = Event.new event_params
     @event.when = event_when
-    @event.user = User.first
-    @event.save
-
-    redirect_to @event
+    @event.user = current_user
+    if @event.save then
+      return redirect_to @event
+    end
+    render 'new'
   end
 
   def join_event
-    event = Event.find_by(id: params[:id])
-    join = event.joined.new user: User.first
-    join.save
+    if current_user.nil? then
+      flash[:negative] = "Nie jesteś zalogowany do systemu."
+      redirect_to root_path
+    end
 
+    event = Event.find_by(id: params[:id])
+    join = event.joined.new user: current_user
+    join.save
     redirect_to event
+  end
+
+  def leave_event
+    @event = Event.find_by(id: params[:id])
+    @event.joined().where(user_id: current_user).destroy_all
+
+    redirect_to @event
   end
 
   private

@@ -1,0 +1,21 @@
+<div class="ui centered card">
+  <div class="image">
+    <%= gravatar_for @user %>
+  </div>
+  <div class="content">
+    <div class="header"><%= "#{@user.name} #{@user.surname}" %></div>
+    <div class="meta">
+      <span><%= @user.email %></span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a class="right floated" title="Numer telefonu">
+      <i class="phone icon"></i>
+      +48 <%= @user.telephone %>
+    </a>
+    <a title="Utworzone wydarzenia">
+      <i class="users icon"></i>
+      <%= @user.events.count %>
+    </a>
+  </div>
+</div>

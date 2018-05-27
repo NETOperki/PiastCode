@@ -1,6 +1,5 @@
-<br>
-<%= image_tag("logo.png", class: "ui fluid logo image") %>
 <div class="ui olive raised center aligned segment">
+  <%= render partial: 'shared/form_errors', :locals => {model: @event} %>
   <div class="ui stackable two column grid">
     <div class="column">
     <!-- <div id="formularz"> -->

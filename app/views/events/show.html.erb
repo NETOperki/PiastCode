@@ -1,7 +1,5 @@
-<br>
-<%= image_tag("logo.png", class: "ui fluid logo image") %>
-<br>
 <!-- <div class="ui basic center aligned segment">-->
+  <br/>
 	<div class="ui stackable two column grid">
 		<div class="column">
   		<div class="ui olive column raised center aligned segment">
@@ -11,16 +9,22 @@
     		<span style="font-size:30px; line-height: 50px; font-weight:bold; text-transform:uppercase;"><%= @event.title %></span>
     		<br><br>
     		<span style="font-size:20px; line-height: 35px;">
-    		<b>Organizator: </b><%= "#{@event.user.name} #{@event.user.surname}" %><br>
+    		<b>Organizator: </b><a href="<%= user_path(@event.user) %>"> <%= "#{@event.user.name} #{@event.user.surname}" %></a><br>
     		<b>Kategoria: </b><%= category_to_name @event.category %><br>
     		<b>Opis: </b><%= @event.description %> <br>
     		<b>Data: </b><%= @event.when.to_s :long %><br>
     		<b>Ilość uczestniczących już osób: </b> <%= @event.joined.count %>
     		</span>
     		<br><br>
-        <%= link_to("Dołącz", event_join_path(@event), class:"ui green button") %>
+        <% if logged_in? %>
+          <% if @joined.count == 0 %>
+            <%= link_to("Dołącz", event_join_path(@event), class:"ui green button") %>
+          <% else %>
+            <%= link_to("Zrezygnuj", leave_event_path(@event), class:"ui orange button") %>
+          <% end %>
+        <% end %>
         <%= link_to("http://www.facebook.com/share.php?u=http://localhost:3000#{url_for(@event)}", class:"ui facebook button") do %>
-        <i class="facebook icon"></i>Udostępnij <span class="tablet-hidden">na Facebooku</span>
+          <i class="facebook icon"></i>Udostępnij <span class="tablet-hidden">na Facebooku</span>
         <% end %>
       </div>
 		</div>
@@ -44,7 +48,7 @@
                 <div class="comment">
                   <a class="avatar"><i class="big user icon"></i></a>
                   <div class="content">
-                    <a class="author"><%= "#{post.user.name} #{post.user.surname}" %></a>
+                    <a class="author" href="<%= user_path(post.user) %>"><%= "#{post.user.name} #{post.user.surname}" %></a>
                     <div class="metadata">
                       <span class="date"><%= post.created_at.to_s :long %></span>
                     </div>
@@ -59,7 +63,9 @@
               <div class="field">
                 <%= f.text_area :content, placeholder: "Wiadomość" %>
               </div>
-              <%= f.submit("Dodaj wiadomość", class: "ui blue button") %>
+              <% if logged_in? %>
+                <%= f.submit("Dodaj wiadomość", class: "ui blue button") %>
+              <% end %>
             <% end %>
           </div>
         </div>

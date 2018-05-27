@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get 'events/js/point/:id', to: 'events#js_map'
+  get 'events/leave/:id', to: 'events#leave_event', as: 'leave_event'
   get 'events/join/:id', to: 'events#join_event', as: 'event_join'
   get 'events/find', to: 'events#find', as: 'events_find'
 

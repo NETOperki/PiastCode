@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="ui inverted attached borderless orange menu">
+    <div class="ui inverted attached borderless teal menu">
       <div class="ui container">
         <%= link_to(root_path, class: item_active?(root_path)) do %>
           <i class="home icon"></i> Let's MeetUp
@@ -26,10 +26,10 @@
             <% if logged_in? %>
               <%= current_user.name %> <i class="dropdown icon"></i>
               <div class="menu">
-                <a href="" class="item">Profil</a>
+                <%= link_to("Profil", current_user, class:"item") %>
                 <a href="" class="item">Moje wydarzenia</a>
                 <div class="divider"></div>
-                <%= link_to "Wyloguj się", logout_path, method: :delete, class: "item" %>
+                <%= link_to("Wyloguj się", logout_path, method: :delete, class:"item") %>
               </div>
             <% else %>
               Użytkownik <i class="dropdown icon"></i>
@@ -43,7 +43,9 @@
       </div>
     </div>
     <div class="ui container">
-      <br>
+      <br/>
+      <%= image_tag("logo.png", class: "ui fluid logo image") %>
+
       <% flash.each do |type, message| %>
         <div class="ui <%= type %> message"><%= message %></div>
       <% end %>
