@@ -12,14 +12,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
-    if @post.user == current_user then
-      @post.destroy
+    post = Post.find_by(id: params[:id])
+    if post.user == current_user then
+      post.destroy
       flash[:positive] = "Komentarz został usunięty."
     else
       flash[:negative] = "Nie można było usunąć komentarza z systemu. Spróbuj ponownie."
     end
-    redirect_to @post.event
+    redirect_to post.event
   end
 
   private
